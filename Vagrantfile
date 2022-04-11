@@ -101,4 +101,8 @@ Vagrant.configure("2") do |config|
   config.vm.provision "shell", path: "vagrant_root_install.sh" 
   config.vm.provision "shell", privileged: false, path: "vagrant_user_install.sh"
 
+  if Vagrant.has_plugin?("vagrant-timezone")
+    config.timezone.value = :host
+  end
+
 end
